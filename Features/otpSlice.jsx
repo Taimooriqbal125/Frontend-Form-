@@ -1,6 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+console.log("sss", import.meta.env)
+
 // ✅ Async action for OTP verification
 export const verifyOTP = createAsyncThunk(
     "otp/verifyOTP",
@@ -8,7 +11,7 @@ export const verifyOTP = createAsyncThunk(
         try {
             // ✅ Send OTP verification request
             const response = await axios.post(
-                "http://localhost:5000/verifyotp",
+                `${API_BASE_URL}/verifyotp`,
                 { email, phone, emailOtp, phoneOtp },
                 { headers: { "Content-Type": "application/json" } }
             );

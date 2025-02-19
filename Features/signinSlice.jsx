@@ -1,12 +1,16 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+console.log("scas",API_BASE_URL)
+// console.log("aaa",process.env)
+
 // ✅ Async action for signing up a user
 export const signupUser = createAsyncThunk(
   "user/signupUser",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await axios.post("http://localhost:5000/signup", userData, {
+      const response = await axios.post(`${API_BASE_URL}/signup`, userData, {
         headers: { "Content-Type": "application/json" },
       });
 

@@ -59,7 +59,7 @@ const Signup = () => {
       if (result.payload.email && result.payload.phone) {
           navigate("/verifyotp"); // ✅ Navigate to OTP page
       } else {
-          console.error("❌ Signup response is missing email or phone");
+          console.error(" Signup response is missing email or phone");
       }
   }
 }}
